@@ -1,4 +1,4 @@
-export default function calculateMode(data:Array<number>):number{
+export default function calculateMode(data:Array<number>, toFixed:number = 3):number{
     const frequencyMap = new Map<number, number>();
     for(const item of data){
         const num = Number(item);
@@ -13,5 +13,5 @@ export default function calculateMode(data:Array<number>):number{
             maxFrequency = frequency;
         }
     });
-    return mode === undefined?Math.min():mode;
+    return mode === undefined?Math.min():parseFloat(mode.toFixed(toFixed));
 }
